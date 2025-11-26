@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRICTIONisSICK - Ajay Acharya Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="stars-container">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">FRICTION</span>
+                <span class="logo-highlight">isSICK</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">WELCOME TO THE</span>
+                    <span class="title-line highlight">FUTURE</span>
+                </h1>
+                <p class="hero-subtitle">Innovating • Creating • Inspiring</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>Explore Projects</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#about" class="btn btn-secondary">
+                        <span>Learn More</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="planet-system">
+                    <div class="planet"></div>
+                    <div class="orbit orbit-1">
+                        <div class="satellite"></div>
+                    </div>
+                    <div class="orbit orbit-2">
+                        <div class="satellite"></div>
+                    </div>
+                    <div class="orbit orbit-3">
+                        <div class="satellite"></div>
+                    </div>
+                    <!-- Spaceship -->
+                    <div class="spaceship">
+                        <svg width="60" height="40" viewBox="0 0 60 40" fill="none">
+                            <!-- Spaceship body -->
+                            <path d="M5 20 L45 10 L55 20 L45 30 Z" fill="url(#shipGradient)" stroke="#667eea" stroke-width="1.5"/>
+                            <!-- Window -->
+                            <circle cx="25" cy="20" r="5" fill="rgba(255,255,255,0.8)" stroke="#667eea" stroke-width="1"/>
+                            <!-- Wing top -->
+                            <path d="M20 10 L15 5 L25 12 Z" fill="url(#shipGradient)" stroke="#667eea" stroke-width="1"/>
+                            <!-- Wing bottom -->
+                            <path d="M20 30 L15 35 L25 28 Z" fill="url(#shipGradient)" stroke="#667eea" stroke-width="1"/>
+                            <!-- Engine glow -->
+                            <circle cx="8" cy="20" r="4" fill="#DC143C" opacity="0.9">
+                                <animate attributeName="opacity" values="0.6;1;0.6" dur="0.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <!-- Flame trail - Nepal flag colors (Crimson Red and Blue) - Longer trails -->
+                            <!-- Main crimson trail -->
+                            <path d="M8 20 L-5 18 L-5 22 Z" fill="#DC143C" opacity="0.8">
+                                <animate attributeName="opacity" values="0.5;0.9;0.5" dur="0.3s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M5 19 L-10 17 L-10 21 Z" fill="#DC143C" opacity="0.6">
+                                <animate attributeName="opacity" values="0.4;0.7;0.4" dur="0.4s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M3 19.5 L-15 18 L-15 22 Z" fill="#DC143C" opacity="0.4">
+                                <animate attributeName="opacity" values="0.2;0.5;0.2" dur="0.5s" repeatCount="indefinite"/>
+                            </path>
+                            <!-- Blue trail layers -->
+                            <path d="M8 17 L-5 14 L-5 17 Z" fill="#003893" opacity="0.7">
+                                <animate attributeName="opacity" values="0.4;0.8;0.4" dur="0.4s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M5 16.5 L-10 13 L-10 16 Z" fill="#003893" opacity="0.5">
+                                <animate attributeName="opacity" values="0.3;0.6;0.3" dur="0.5s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M8 23 L-5 23 L-5 26 Z" fill="#003893" opacity="0.7">
+                                <animate attributeName="opacity" values="0.4;0.8;0.4" dur="0.4s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M5 23.5 L-10 24 L-10 27 Z" fill="#003893" opacity="0.5">
+                                <animate attributeName="opacity" values="0.3;0.6;0.3" dur="0.5s" repeatCount="indefinite"/>
+                            </path>
+                            <defs>
+                                <linearGradient id="shipGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#764ba2;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#667eea;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll to explore</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="title-decoration"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <div class="image-placeholder">
+                            <img src="face.jpg" alt="Ajay Acharya" class="profile-image">
+                            <!-- Particle Container -->
+                            <canvas id="particleCanvas" class="particle-canvas"></canvas>
+                        </div>
+                        <div class="image-glow"></div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Hi, I'm <span class="name-highlight">Ajay Acharya</span></h3>
+                    <p class="intro-text">
+                        A passionate developer and creator, exploring the infinite possibilities of technology and design. 
+                        I specialize in building innovative solutions that push the boundaries of what's possible.
+                    </p>
+                    <p>
+                        With a background in Computer Science, I've worked on various projects ranging from web development 
+                        to creative design. My goal is to create experiences that are not only functional but also 
+                        visually stunning and memorable.
+                    </p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-icon">⚡</div>
+                            <div class="skill-info">
+                                <h4>Fast Development</h4>
+                                <p>Quick turnaround with quality code</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">🎨</div>
+                            <div class="skill-info">
+                                <h4>Creative Design</h4>
+                                <p>Beautiful, modern interfaces</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">🚀</div>
+                            <div class="skill-info">
+                                <h4>Innovation</h4>
+                                <p>Cutting-edge solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My Projects</h2>
+                <div class="title-decoration"></div>
+                <p class="section-subtitle">Explore my latest work and creations</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('cat.jpg'); background-size: cover; background-position: center;">
+                        <div class="project-overlay">
+                            <a href="app-debug.apk" class="project-link" download>Download APK</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Emulator Detector</h3>
+                        <p>An Android application designed to detect if the app is running on an emulator or a real device. Useful for security and anti-fraud measures in mobile applications.</p>
+                        <div class="project-tags">
+                            <span class="tag">Android</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <div class="project-image project-placeholder project-anim-2">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="200" cy="150" r="60" fill="none" stroke="url(#grad2)" stroke-width="2">
+                                <animate attributeName="r" values="60;70;60" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="200" cy="150" r="40" fill="url(#grad2)" opacity="0.3">
+                                <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            <text x="200" y="160" text-anchor="middle" fill="#fff" font-size="24" font-family="Orbitron">PENDING</text>
+                        </svg>
+                        <div class="project-overlay">
+                            <span class="project-link" style="cursor: default; opacity: 0.6;">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Name 2 - Pending</h3>
+                        <p>This project is currently under development. Check back soon for updates and exciting new features!</p>
+                        <div class="project-tags">
+                            <span class="tag">Pending</span>
+                            <span class="tag">In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <div class="project-image project-placeholder project-anim-3">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <polygon points="200,80 240,140 200,200 160,140" fill="none" stroke="url(#grad3)" stroke-width="2">
+                                <animateTransform attributeName="transform" type="rotate" values="0 200 150;360 200 150" dur="4s" repeatCount="indefinite"/>
+                            </polygon>
+                            <polygon points="200,100 220,130 200,160 180,130" fill="url(#grad3)" opacity="0.4">
+                                <animateTransform attributeName="transform" type="rotate" values="360 200 150;0 200 150" dur="4s" repeatCount="indefinite"/>
+                            </polygon>
+                            <text x="200" y="230" text-anchor="middle" fill="#fff" font-size="24" font-family="Orbitron">PENDING</text>
+                        </svg>
+                        <div class="project-overlay">
+                            <span class="project-link" style="cursor: default; opacity: 0.6;">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Name 3 - Pending</h3>
+                        <p>This project is currently under development. Check back soon for updates and exciting new features!</p>
+                        <div class="project-tags">
+                            <span class="tag">Pending</span>
+                            <span class="tag">In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="project-card">
+                    <div class="project-image project-placeholder project-anim-4">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="150" y="100" width="100" height="100" fill="none" stroke="url(#grad4)" stroke-width="2">
+                                <animate attributeName="width" values="100;120;100" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="height" values="100;120;100" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="x" values="150;140;150" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="y" values="100;90;100" dur="3s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="170" y="120" width="60" height="60" fill="url(#grad4)" opacity="0.3"/>
+                            <text x="200" y="230" text-anchor="middle" fill="#fff" font-size="24" font-family="Orbitron">PENDING</text>
+                        </svg>
+                        <div class="project-overlay">
+                            <span class="project-link" style="cursor: default; opacity: 0.6;">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Name 4 - Pending</h3>
+                        <p>This project is currently under development. Check back soon for updates and exciting new features!</p>
+                        <div class="project-tags">
+                            <span class="tag">Pending</span>
+                            <span class="tag">In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image project-placeholder project-anim-5">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M 200 100 L 250 150 L 200 200 L 150 150 Z" fill="none" stroke="url(#grad5)" stroke-width="2">
+                                <animateTransform attributeName="transform" type="scale" values="1;1.2;1" dur="2.5s" repeatCount="indefinite" additive="sum"/>
+                                <animateTransform attributeName="transform" type="translate" values="0,0" dur="2.5s" repeatCount="indefinite" additive="sum"/>
+                            </path>
+                            <circle cx="200" cy="150" r="20" fill="url(#grad5)" opacity="0.5">
+                                <animate attributeName="r" values="20;30;20" dur="2.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <text x="200" y="240" text-anchor="middle" fill="#fff" font-size="24" font-family="Orbitron">PENDING</text>
+                        </svg>
+                        <div class="project-overlay">
+                            <span class="project-link" style="cursor: default; opacity: 0.6;">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Name 5 - Pending</h3>
+                        <p>This project is currently under development. Check back soon for updates and exciting new features!</p>
+                        <div class="project-tags">
+                            <span class="tag">Pending</span>
+                            <span class="tag">In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image project-placeholder project-anim-6">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <polygon points="200,90 220,130 200,170 180,130" fill="none" stroke="url(#grad6)" stroke-width="2">
+                                <animate attributeName="points" values="200,90 220,130 200,170 180,130;210,90 230,130 210,170 190,130;200,90 220,130 200,170 180,130" dur="3s" repeatCount="indefinite"/>
+                            </polygon>
+                            <polygon points="200,110 210,130 200,150 190,130" fill="url(#grad6)" opacity="0.4">
+                                <animate attributeName="points" values="200,110 210,130 200,150 190,130;190,110 200,130 190,150 180,130;200,110 210,130 200,150 190,130" dur="3s" repeatCount="indefinite"/>
+                            </polygon>
+                            <text x="200" y="220" text-anchor="middle" fill="#fff" font-size="24" font-family="Orbitron">PENDING</text>
+                        </svg>
+                        <div class="project-overlay">
+                            <span class="project-link" style="cursor: default; opacity: 0.6;">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Name 6 - Pending</h3>
+                        <p>This project is currently under development. Check back soon for updates and exciting new features!</p>
+                        <div class="project-tags">
+                            <span class="tag">Pending</span>
+                            <span class="tag">In Progress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Social Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="title-decoration"></div>
+                <p class="section-subtitle">Let's connect and create something amazing together</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="social-links">
+                    <!-- Instagram with QR -->
+                    <a href="#" class="social-card" target="_blank">
+                        <div class="social-icon">
+                            <img src="ajay.png" alt="Instagram QR" class="qr-code">
+                        </div>
+                        <div class="social-info">
+                            <h4>Instagram</h4>
+                            <p>Scan QR Code</p>
+                        </div>
+                    </a>
+
+                    <!-- Facebook with QR -->
+                    <a href="#" class="social-card" target="_blank">
+                        <div class="social-icon">
+                            <img src="download.png" alt="Facebook QR" class="qr-code">
+                        </div>
+                        <div class="social-info">
+                            <h4>Facebook</h4>
+                            <p>Scan QR Code</p>
+                        </div>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:acharyaazay37@gmail.com" class="social-card">
+                        <div class="social-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="social-info">
+                            <h4>Email</h4>
+                            <p>acharyaazay37@gmail.com</p>
+                        </div>
+                    </a>
+
+                    <!-- Telegram -->
+                    <a href="https://t.me/rgxyour" class="social-card" target="_blank">
+                        <div class="social-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                        </div>
+                        <div class="social-info">
+                            <h4>Telegram</h4>
+                            <p>@rgxyour</p>
+                        </div>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/rocket5321123" class="social-card" target="_blank">
+                        <div class="social-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <div class="social-info">
+                            <h4>GitHub</h4>
+                            <p>@rocket5321123</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>FRICTION<span>isSICK</span></h3>
+                    <p>Building the future, one project at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FRICTIONisSICK - Ajay Acharya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
