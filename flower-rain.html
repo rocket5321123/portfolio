@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Rain - FRICTIONisSICK</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #000000;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .flower {
+            position: absolute;
+            font-size: 30px;
+            animation: fall linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Back to Portfolio</a>
+
+    <script>
+        const flowers = ['🌸', '🌺', '🌻', '🌷', '🌹', '🏵️', '💐', '🌼', '🌿', '🍀'];
+        
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+            
+            // Random horizontal position
+            flower.style.left = Math.random() * 100 + 'vw';
+            
+            // Random animation duration (3-8 seconds)
+            const duration = 3 + Math.random() * 5;
+            flower.style.animationDuration = duration + 's';
+            
+            // Random delay
+            flower.style.animationDelay = Math.random() * 2 + 's';
+            
+            // Random size
+            const size = 20 + Math.random() * 30;
+            flower.style.fontSize = size + 'px';
+            
+            document.body.appendChild(flower);
+            
+            // Remove flower after animation completes
+            setTimeout(() => {
+                flower.remove();
+            }, (duration + 2) * 1000);
+        }
+
+        // Create flowers continuously
+        setInterval(createFlower, 300);
+        
+        // Initial burst
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createFlower, i * 100);
+        }
+    </script>
+</body>
+</html>
