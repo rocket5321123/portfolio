@@ -573,6 +573,8 @@ function saveStreamRecording(title, duration) {
 window.addEventListener('load', function() {
     const youtubePlayer = document.getElementById('youtubePlayer');
     const streamFallback = document.getElementById('streamFallback');
+    const streamOverlay = document.getElementById('streamOverlay');
+    const unmuteButton = document.getElementById('unmuteButton');
     
     if (youtubePlayer && streamFallback) {
         // Show fallback after 5 seconds if iframe doesn't load
@@ -586,6 +588,13 @@ window.addEventListener('load', function() {
         youtubePlayer.addEventListener('load', function() {
             clearTimeout(fallbackTimeout);
             console.log('YouTube player loaded successfully');
+            
+            // Show unmute overlay after successful load
+            setTimeout(function() {
+                if (streamOverlay) {
+                    streamOverlay.style.display = 'flex';
+                }
+            }, 2000);
         });
         
         // Also listen for errors
@@ -607,5 +616,19 @@ window.addEventListener('load', function() {
                 }
             }
         }, 6000);
+        
+        // Handle unmute button click
+        if (unmuteButton) {
+            unmuteButton.addEventListener('click', function() {
+                if (streamOverlay) {
+                    streamOverlay.style.display = 'none';
+                }
+                // Attempt to unmute by reloading with mute=0
+                if (youtubePlayer) {
+                    const currentSrc = youtubePlayer.src;
+                    youtubePlayer.src = currentSrc.replace('mute=1', 'mute=0');
+                }
+            });
+        }
     }
 });
