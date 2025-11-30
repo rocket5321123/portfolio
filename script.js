@@ -459,3 +459,30 @@ if (canvas) {
     
     animateParticles();
 }
+
+// ===================================
+// LIVE STREAM NOTIFICATION FORM
+// ===================================
+const notifyForm = document.querySelector('.notify-form');
+if (notifyForm) {
+    notifyForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const emailInput = this.querySelector('.email-input');
+        const email = emailInput.value;
+        
+        if (email) {
+            // Show success message
+            const originalBtnText = this.querySelector('.notify-btn').textContent;
+            this.querySelector('.notify-btn').textContent = 'Subscribed!';
+            
+            // Store email in localStorage (in a real app, you'd send to a backend)
+            localStorage.setItem('streamNotificationEmail', email);
+            
+            // Reset form after 2 seconds
+            setTimeout(() => {
+                this.querySelector('.notify-btn').textContent = originalBtnText;
+                emailInput.value = '';
+            }, 2000);
+        }
+    });
+}
