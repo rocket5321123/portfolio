@@ -573,28 +573,32 @@ function saveStreamRecording(title, duration) {
 window.addEventListener('load', function() {
     const youtubePlayer = document.getElementById('youtubePlayer');
     const streamFallback = document.getElementById('streamFallback');
-    const streamOverlay = document.getElementById('streamOverlay');
-    const unmuteButton = document.getElementById('unmuteButton');
     
     if (youtubePlayer && streamFallback) {
-        // Show fallback after 5 seconds if iframe doesn't load
+        // Show fallback after 15 seconds if iframe doesn't load properly
+        // YouTube live streams take time to initialize
         const fallbackTimeout = setTimeout(function() {
-            youtubePlayer.style.display = 'none';
-            streamFallback.style.display = 'block';
-            console.log('YouTube player failed to load, showing fallback');
-        }, 5000);
+            // Check if the player actually loaded but shows "Stream will appear here when live"
+            // This is normal YouTube behavior when not live streaming
+            console.log('YouTube player timeout - this may be normal if not currently streaming');
+        }, 15000);
         
         // If iframe loads successfully, cancel the fallback
         youtubePlayer.addEventListener('load', function() {
             clearTimeout(fallbackTimeout);
             console.log('YouTube player loaded successfully');
             
-            // Show unmute overlay after successful load
+            // Additional check after load to see if stream is actually available
             setTimeout(function() {
-                if (streamOverlay) {
-                    streamOverlay.style.display = 'flex';
+                try {
+                    // This is just for debugging - we can't actually check the iframe content
+                    // due to cross-origin restrictions, but we can log when it's loaded
+                    console.log('YouTube player content loaded - stream should be visible if live');
+                } catch(e) {
+                    // Cross-origin restrictions prevent us from checking iframe content
+                    console.log('YouTube player loaded but cannot verify content due to security restrictions');
                 }
-            }, 2000);
+            }, 3000);
         });
         
         // Also listen for errors
@@ -604,31 +608,5 @@ window.addEventListener('load', function() {
             streamFallback.style.display = 'block';
             console.log('YouTube player error detected, showing fallback');
         });
-        
-        // Additional check for YouTube-specific issues
-        setTimeout(function() {
-            if (youtubePlayer.contentDocument && youtubePlayer.contentDocument.body) {
-                const bodyText = youtubePlayer.contentDocument.body.innerText;
-                if (bodyText && (bodyText.includes('unavailable') || bodyText.includes('error'))) {
-                    youtubePlayer.style.display = 'none';
-                    streamFallback.style.display = 'block';
-                    console.log('YouTube stream unavailable, showing fallback');
-                }
-            }
-        }, 6000);
-        
-        // Handle unmute button click
-        if (unmuteButton) {
-            unmuteButton.addEventListener('click', function() {
-                if (streamOverlay) {
-                    streamOverlay.style.display = 'none';
-                }
-                // Attempt to unmute by reloading with mute=0
-                if (youtubePlayer) {
-                    const currentSrc = youtubePlayer.src;
-                    youtubePlayer.src = currentSrc.replace('mute=1', 'mute=0');
-                }
-            });
-        }
     }
 });
