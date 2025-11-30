@@ -777,6 +777,13 @@ body {
     padding: 2rem;
 }
 
+.stream-embed-placeholder {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
 .stream-icon {
     color: var(--primary-color);
     margin-bottom: 1.5rem;

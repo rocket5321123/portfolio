@@ -198,7 +198,7 @@
             
             <div class="stream-content">
                 <div class="stream-player">
-                    <div class="stream-placeholder">
+                    <div class="stream-placeholder" style="display: none;">
                         <div class="stream-icon">
                             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"/>
@@ -212,8 +212,22 @@
                             <span>Offline</span>
                         </div>
                     </div>
-                    <!-- You can replace this with actual streaming embed code when live -->
-                    <!-- Example: YouTube, Twitch, or custom streaming solution -->
+                    <!-- REPLACE THE COMMENT BELOW WITH YOUR ACTUAL STREAMING EMBED CODE -->
+                    <!-- Example for YouTube Live:
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/LIVE_STREAM_ID" frameborder="0" allowfullscreen></iframe>
+                    -->
+                    <!-- Example for Twitch:
+                    <iframe src="https://player.twitch.tv/?channel=YOUR_CHANNEL_NAME" frameborder="0" allowfullscreen height="400" width="100%"></iframe>
+                    -->
+                    <!-- Example for custom RTMP stream:
+                    <video controls autoplay muted width="100%" height="400">
+                        <source src="YOUR_STREAM_URL" type="application/x-mpegURL">
+                    </video>
+                    -->
+                    <div class="stream-embed-placeholder">
+                        <p>To go live, replace this placeholder with your streaming embed code.</p>
+                        <p>See commented examples in the HTML source.</p>
+                    </div>
                 </div>
                 
                 <div class="stream-info">
