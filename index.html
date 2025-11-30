@@ -213,7 +213,11 @@
                         </div>
                     </div>
                     <!-- ACTIVE TWITCH STREAM - Replace with your stream when live -->
-                    <iframe src="https://player.twitch.tv/?channel=sleepknot229299&parent=localhost&parent=127.0.0.1&parent=YOUR_DOMAIN_HERE" frameborder="0" allowfullscreen height="400" width="100%"></iframe>
+                    <iframe src="https://player.twitch.tv/?channel=sleepknot229299&parent=127.0.0.1&parent=localhost&allowfullscreen=true" frameborder="0" allowfullscreen height="400" width="100%" id="twitchPlayer"></iframe>
+                    <div class="stream-fallback" id="streamFallback" style="display: none;">
+                        <p>📺 Stream will appear here when live</p>
+                        <p><small>Having trouble? Try <a href="https://www.twitch.tv/sleepknot229299" target="_blank">watching directly on Twitch</a></small></p>
+                    </div>
                 </div>
                 
                 <div class="stream-info">

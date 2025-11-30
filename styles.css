@@ -784,6 +784,47 @@ body {
     font-style: italic;
 }
 
+.stream-fallback {
+    text-align: center;
+    padding: 2rem;
+    color: #aaa;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.stream-fallback a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.stream-fallback a:hover {
+    text-decoration: underline;
+}
+
+.setup-instructions {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.setup-instructions h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.setup-instructions ol {
+    padding-left: 1.5rem;
+    text-align: left;
+}
+
+.setup-instructions li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
 .stream-icon {
     color: var(--primary-color);
     margin-bottom: 1.5rem;

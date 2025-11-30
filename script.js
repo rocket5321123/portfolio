@@ -568,3 +568,22 @@ function saveStreamRecording(title, duration) {
     
     console.log('Stream recording saved:', newStream);
 }
+
+// Handle Twitch player connection errors
+window.addEventListener('load', function() {
+    const twitchPlayer = document.getElementById('twitchPlayer');
+    const streamFallback = document.getElementById('streamFallback');
+    
+    if (twitchPlayer && streamFallback) {
+        // Show fallback after 5 seconds if iframe doesn't load
+        const fallbackTimeout = setTimeout(function() {
+            twitchPlayer.style.display = 'none';
+            streamFallback.style.display = 'block';
+        }, 5000);
+        
+        // If iframe loads successfully, cancel the fallback
+        twitchPlayer.addEventListener('load', function() {
+            clearTimeout(fallbackTimeout);
+        });
+    }
+});
