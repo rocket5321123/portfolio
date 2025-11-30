@@ -575,12 +575,12 @@ window.addEventListener('load', function() {
     const streamFallback = document.getElementById('streamFallback');
     
     if (youtubePlayer && streamFallback) {
-        // Show fallback after 3 seconds if iframe doesn't load
+        // Show fallback after 5 seconds if iframe doesn't load
         const fallbackTimeout = setTimeout(function() {
             youtubePlayer.style.display = 'none';
             streamFallback.style.display = 'block';
             console.log('YouTube player failed to load, showing fallback');
-        }, 3000);
+        }, 5000);
         
         // If iframe loads successfully, cancel the fallback
         youtubePlayer.addEventListener('load', function() {
@@ -595,5 +595,17 @@ window.addEventListener('load', function() {
             streamFallback.style.display = 'block';
             console.log('YouTube player error detected, showing fallback');
         });
+        
+        // Additional check for YouTube-specific issues
+        setTimeout(function() {
+            if (youtubePlayer.contentDocument && youtubePlayer.contentDocument.body) {
+                const bodyText = youtubePlayer.contentDocument.body.innerText;
+                if (bodyText && (bodyText.includes('unavailable') || bodyText.includes('error'))) {
+                    youtubePlayer.style.display = 'none';
+                    streamFallback.style.display = 'block';
+                    console.log('YouTube stream unavailable, showing fallback');
+                }
+            }
+        }, 6000);
     }
 });
