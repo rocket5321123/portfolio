@@ -249,6 +249,13 @@
                         <p>Web Development, Programming Tips, Project Walkthroughs, Tech News & More</p>
                     </div>
                     
+                    <div class="info-card">
+                        <div class="info-icon">🎬</div>
+                        <h4>Stream Recordings</h4>
+                        <p>All live streams are automatically recorded and stored for later viewing.</p>
+                        <button class="view-recordings-btn" id="viewRecordings">View Past Streams</button>
+                    </div>
+                    
                     <div class="notification-card">
                         <h4>🔔 Get Notified</h4>
                         <p>Never miss a stream! Enter your email to receive notifications when I go live.</p>
@@ -256,6 +263,17 @@
                             <input type="email" placeholder="Your email address" class="email-input" required>
                             <button type="submit" class="notify-btn">Notify Me</button>
                         </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Past Streams Section -->
+            <div class="past-streams-section" id="pastStreamsSection" style="display: none;">
+                <h3 class="section-subtitle">Past Stream Recordings</h3>
+                <div class="past-streams-grid" id="pastStreamsGrid">
+                    <!-- Past streams will be loaded here -->
+                    <div class="past-stream-placeholder">
+                        <p>No stream recordings available yet. Past streams will appear here after they end.</p>
                     </div>
                 </div>
             </div>

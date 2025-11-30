@@ -486,3 +486,85 @@ if (notifyForm) {
         }
     });
 }
+
+// ===================================
+// PAST STREAM RECORDINGS
+// ===================================
+const viewRecordingsBtn = document.getElementById('viewRecordings');
+const pastStreamsSection = document.getElementById('pastStreamsSection');
+
+if (viewRecordingsBtn) {
+    viewRecordingsBtn.addEventListener('click', function() {
+        // Toggle visibility of past streams section
+        if (pastStreamsSection.style.display === 'none') {
+            pastStreamsSection.style.display = 'block';
+            this.textContent = 'Hide Past Streams';
+            loadPastStreams();
+        } else {
+            pastStreamsSection.style.display = 'none';
+            this.textContent = 'View Past Streams';
+        }
+    });
+}
+
+function loadPastStreams() {
+    const pastStreamsGrid = document.getElementById('pastStreamsGrid');
+    
+    // Check if we already have streams loaded
+    if (pastStreamsGrid.children.length > 1) return;
+    
+    // Clear placeholder
+    pastStreamsGrid.innerHTML = '';
+    
+    // Load past streams from localStorage (in a real app, you'd fetch from a backend)
+    const pastStreams = JSON.parse(localStorage.getItem('pastStreams') || '[]');
+    
+    if (pastStreams.length === 0) {
+        pastStreamsGrid.innerHTML = `
+            <div class="past-stream-placeholder">
+                <p>No stream recordings available yet. Past streams will appear here after they end.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Display past streams
+    pastStreams.forEach(stream => {
+        const streamCard = document.createElement('div');
+        streamCard.className = 'past-stream-card';
+        streamCard.innerHTML = `
+            <div class="past-stream-thumbnail">
+                <div class="play-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="past-stream-info">
+                <h4>${stream.title}</h4>
+                <div class="past-stream-meta">
+                    <span>${stream.date}</span>
+                    <span>${stream.duration}</span>
+                </div>
+            </div>
+        `;
+        pastStreamsGrid.appendChild(streamCard);
+    });
+}
+
+// Function to save a stream recording (call this when your stream ends)
+function saveStreamRecording(title, duration) {
+    const pastStreams = JSON.parse(localStorage.getItem('pastStreams') || '[]');
+    
+    const newStream = {
+        id: Date.now(),
+        title: title,
+        date: new Date().toLocaleDateString(),
+        duration: duration
+    };
+    
+    pastStreams.unshift(newStream); // Add to beginning
+    localStorage.setItem('pastStreams', JSON.stringify(pastStreams));
+    
+    console.log('Stream recording saved:', newStream);
+}
