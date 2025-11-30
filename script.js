@@ -569,21 +569,31 @@ function saveStreamRecording(title, duration) {
     console.log('Stream recording saved:', newStream);
 }
 
-// Handle Twitch player connection errors
+// Handle YouTube player connection errors
 window.addEventListener('load', function() {
-    const twitchPlayer = document.getElementById('twitchPlayer');
+    const youtubePlayer = document.getElementById('youtubePlayer');
     const streamFallback = document.getElementById('streamFallback');
     
-    if (twitchPlayer && streamFallback) {
-        // Show fallback after 5 seconds if iframe doesn't load
+    if (youtubePlayer && streamFallback) {
+        // Show fallback after 3 seconds if iframe doesn't load
         const fallbackTimeout = setTimeout(function() {
-            twitchPlayer.style.display = 'none';
+            youtubePlayer.style.display = 'none';
             streamFallback.style.display = 'block';
-        }, 5000);
+            console.log('YouTube player failed to load, showing fallback');
+        }, 3000);
         
         // If iframe loads successfully, cancel the fallback
-        twitchPlayer.addEventListener('load', function() {
+        youtubePlayer.addEventListener('load', function() {
             clearTimeout(fallbackTimeout);
+            console.log('YouTube player loaded successfully');
+        });
+        
+        // Also listen for errors
+        youtubePlayer.addEventListener('error', function() {
+            clearTimeout(fallbackTimeout);
+            youtubePlayer.style.display = 'none';
+            streamFallback.style.display = 'block';
+            console.log('YouTube player error detected, showing fallback');
         });
     }
 });
