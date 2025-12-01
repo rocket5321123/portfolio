@@ -761,7 +761,12 @@ body {
     align-items: start;
 }
 
+.stream-info {
+    order: 1;
+}
+
 .stream-player {
+    order: 2;
     background: var(--card-bg);
     border-radius: 20px;
     overflow: hidden;

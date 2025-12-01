@@ -197,42 +197,7 @@
             </div>
             
             <div class="stream-content">
-                <div class="stream-player">
-                    <div class="stream-placeholder" style="display: none;">
-                        <div class="stream-icon">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
-                            </svg>
-                        </div>
-                        <h3>Stream Offline</h3>
-                        <p>No active stream at the moment</p>
-                        <div class="stream-status">
-                            <span class="status-dot" style="background-color: #2ed573;"></span>
-                            <span>Live Now</span>
-                        </div>
-                    </div>
-                    <!-- ACTIVE TWITCH STREAM - Replace with your stream when live -->
-                    <iframe src="https://www.youtube.com/embed/live_stream?channel=UCaJ6UiyGKcDoixU7a91lGyg&autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen height="400" width="100%" id="youtubePlayer"></iframe>
-                    <div class="stream-fallback" id="streamFallback" style="display: none;">
-                        <p>📺 Stream will appear here when live</p>
-                        <p><small>Having trouble? Try <a href="https://www.youtube.com/channel/UCaJ6UiyGKcDoixU7a91lGyg" target="_blank">watching directly on YouTube</a></small></p>
-                    </div>
-                </div>
-                
                 <div class="stream-info">
-                    <div class="info-card">
-                        <div class="info-icon">📹</div>
-                        <h4>Stream Schedule</h4>
-                        <p>Check back for upcoming live sessions. Follow my social media for announcements!</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="info-icon">💬</div>
-                        <h4>Interactive Chat</h4>
-                        <p>Join the conversation during live streams. Ask questions and share ideas!</p>
-                    </div>
-                    
                     <div class="info-card">
                         <div class="info-icon">🎯</div>
                         <h4>Topics Covered</h4>
@@ -253,6 +218,29 @@
                             <input type="email" placeholder="Your email address" class="email-input" required>
                             <button type="submit" class="notify-btn">Notify Me</button>
                         </form>
+                    </div>
+                </div>
+                
+                <div class="stream-player">
+                    <div class="stream-placeholder" style="display: none;">
+                        <div class="stream-icon">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Stream Offline</h3>
+                        <p>No active stream at the moment</p>
+                        <div class="stream-status">
+                            <span class="status-dot" style="background-color: #2ed573;"></span>
+                            <span>Live Now</span>
+                        </div>
+                    </div>
+                    <!-- ACTIVE TWITCH STREAM - Replace with your stream when live -->
+                    <iframe src="https://www.youtube.com/embed/live_stream?channel=UCaJ6UiyGKcDoixU7a91lGyg&autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen height="400" width="100%" id="youtubePlayer"></iframe>
+                    <div class="stream-fallback" id="streamFallback" style="display: none;">
+                        <p>📺 Stream will appear here when live</p>
+                        <p><small>Having trouble? Try <a href="https://www.youtube.com/channel/UCaJ6UiyGKcDoixU7a91lGyg" target="_blank">watching directly on YouTube</a></small></p>
                     </div>
                 </div>
             </div>
