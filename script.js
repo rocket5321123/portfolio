@@ -49,7 +49,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all sections and cards
-const animatedElements = document.querySelectorAll('.about-content, .project-card, .social-card, .skill-item');
+const animatedElements = document.querySelectorAll('.about-content, .project-card, .social-card, .skill-item, .stream-content');
 animatedElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';

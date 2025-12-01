@@ -1331,6 +1331,7 @@ body {
         transition: 0.3s;
         padding: 2rem 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
     }
 
     .nav-menu.active {
@@ -1339,6 +1340,7 @@ body {
 
     .hamburger {
         display: flex;
+        z-index: 1001;
     }
 
     .hero-content {
@@ -1381,6 +1383,20 @@ body {
 
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .stream-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .stream-player {
+        min-height: 300px;
+    }
+
+    .livestream {
+        display: block !important;
+        visibility: visible !important;
     }
 
     .footer-content {
