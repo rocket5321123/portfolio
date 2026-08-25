@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajaya Acharya | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-alt: #f9fafb;
+            --border: #e5e7eb;
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: 0.3s;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 64px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+
+        .hero .highlight {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            margin-left: 12px;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+
+        .about-grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .value-card {
+            padding: 24px;
+            background: var(--bg-alt);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .value-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .journey {
+            background: var(--bg-alt);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 2px solid var(--bg-alt);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .timeline-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .interest-card {
+            padding: 32px;
+            background: var(--bg-alt);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .interest-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .interest-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .interest-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .contact p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+
+        .email-link {
+            display: inline-block;
+            font-size: 1.25rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 16px 32px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius);
+            transition: all 0.2s;
+        }
+
+        .email-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 48px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 24px;
+                gap: 20px;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 120px;
+                padding-bottom: 80px;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 12px;
+            }
+
+            .contact {
+                padding: 80px 0;
+            }
+
+            .contact h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Ajaya Acharya</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#interests">Interests</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Hi, I'm Ajaya.<br>I build things <span class="highlight">that matter</span>.</h1>
+            <p class="subtitle">I'm a student exploring software development and entrepreneurship. I like building projects, testing ideas, and learning how technology can solve real problems.</p>
+            <div>
+                <a href="#about" class="btn">Learn more</a>
+                <a href="#contact" class="btn btn-outline">Get in touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Curious builder, early-stage explorer.</p>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a student who's genuinely interested in how software works and what it can do. Right now, I'm exploring different technologies, building small projects, and learning by doing.</p>
+                    <p>I'm drawn to entrepreneurship because I like the idea of creating something useful from scratch. But I'm honest about where I am: I'm at the beginning. This portfolio is a snapshot of my journey so far, not the end result.</p>
+                    <p>I believe in experimenting, failing fast, and staying curious. Every project teaches me something new, and that's the part I enjoy most.</p>
+                </div>
+                <div class="values">
+                    <div class="value-card">
+                        <h3>Build & Learn</h3>
+                        <p>I prefer building small things and learning from the process rather than just reading about it.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>Stay Curious</h3>
+                        <p>I explore different tools and technologies to understand what's out there and what fits.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>Keep It Real</h3>
+                        <p>I'd rather be transparent about my skill level than pretend to be something I'm not.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="journey" class="journey">
+        <div class="container">
+            <h2 class="section-title">My Journey</h2>
+            <p class="section-subtitle">Still early, but moving forward.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Started Exploring</h3>
+                    <p>Began learning programming and exploring how software is built. Started with the basics and gradually moved to building small projects.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>First Projects</h3>
+                    <p>Built a few small applications and tools. Some worked, some didn't. Every one taught me something valuable.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Discovering Entrepreneurship</h3>
+                    <p>Got interested in how startups work and how technology can solve real problems. Started reading, listening, and thinking about building products.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Where I Am Now</h3>
+                    <p>Continuously learning, building, and experimenting. Focused on growing my skills and working on ideas that could eventually turn into something meaningful.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Looking Ahead</h3>
+                    <p>My long-term goal is to create a technology or AI-based product that genuinely helps people, and eventually build a startup around it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="interests">
+        <div class="container">
+            <h2 class="section-title">What I'm Into</h2>
+            <p class="section-subtitle">Topics I'm currently exploring.</p>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-icon">💻</div>
+                    <h3>Software Development</h3>
+                    <p>Building things with code. I enjoy the process of turning ideas into working software, even when it's challenging.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">🤖</div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Fascinated by what AI can do and learning how to apply it to solve problems. Still early in this journey.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">🚀</div>
+                    <h3>Startups & Building</h3>
+                    <p>Interested in how startups are built from scratch. I like the idea of creating products that help real people.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">🧪</div>
+                    <h3>Experiments & Ideas</h3>
+                    <p>I test out different ideas and see what sticks. Some projects are practice, some are experiments, all are learning.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">📚</div>
+                    <h3>Continuous Learning</h3>
+                    <p>Technology moves fast and I try to keep up. I read, watch, build, and ask questions whenever I can.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">💡</div>
+                    <h3>Problem Solving</h3>
+                    <p>I'm drawn to real problems that need practical solutions. The more concrete the problem, the more motivated I am.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>I'm always open to talking about projects, ideas, or just connecting with people who build things.</p>
+            <a href="mailto:acharyaazay37@gmail.com" class="email-link">acharyaazay37@gmail.com</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p> Built by Ajaya Acharya. Thanks for stopping by.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
